@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Jaya Silk and Sarees | Kanchipuram Handloom & Bridal Silks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    .serif { font-family: 'Playfair Display', serif; }
+    .hero-slide {
+      transition: opacity 0.8s ease-in-out;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .hero-slide.inactive {
+      opacity: 0;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900 pb-20 md:pb-0">
+
+  <!-- Full-Width Top Shop Showcase Banner -->
+  <section id="hero-section" class="relative min-h-[480px] sm:min-h-[540px] flex items-end overflow-hidden bg-[#2d0a31] text-white">
+    
+    <!-- Shop Image Container (Single Shop Display by Default; Auto-Slides if Multiple Shop Pics Provided) -->
+    <div id="slides-container" class="absolute inset-0">
+      <div class="hero-slide active absolute inset-0">
+        <img
+          id="main-shop-img"
+          src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQc7yWnw8IWOjvDpojRHI4VSR-KnF0Kim_R3Qir2MdiVxgoE24w0heDnRmK-FbDKarCNhGfTOyU1UqOmKY"
+          alt="Sri Jaya Silk and Sarees Showroom Display"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+    </div>
+
+    <!-- Rich Plum & Gold Overlay for Crisp Text Readability -->
+    <div id="hero-overlay" class="absolute inset-0 z-10 bg-gradient-to-t from-[#240628] via-[#3b0b38]/80 to-black/35"></div>
+
+    <!-- Multi-Photo Controls (Hidden when only 1 shop photo is present; shown automatically when multiple shop pics are added) -->
+    <div id="slider-controls" class="hidden absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center gap-2 bg-black/45 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/15">
+      <button onclick="changeSlide(-1)" aria-label="Previous Shop Photo" class="text-white/80 hover:text-white text-sm font-bold px-1 cursor-pointer">‹</button>
+      <div id="slide-dots" class="flex items-center gap-1.5"></div>
+      <button onclick="changeSlide(1)" aria-label="Next Shop Photo" class="text-white/80 hover:text-white text-sm font-bold px-1 cursor-pointer">›</button>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-20 max-w-6xl mx-auto w-full px-5 sm:px-6 pt-16 pb-10 sm:py-14">
+      <div class="max-w-2xl space-y-4">
+        <div class="inline-flex flex-wrap items-center gap-2">
+          <span id="hero-badge" class="bg-amber-400 text-amber-950 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+            Pillaiyarpalayam Weaver Direct
+          </span>
+          <span id="hero-rating" class="bg-black/40 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            ★ 5.0 Google Rated (86+ Reviews)
+          </span>
+        </div>
+
+        <div>
+          <h1 id="hero-title" class="serif text-3xl sm:text-5xl font-bold leading-tight">
+            Sri Jaya Silk and Sarees
+          </h1>
+          <p id="hero-subtitle" class="text-amber-300 font-semibold text-sm sm:text-base mt-1.5">
+            94/110, Krishnan St, Pillaiyarpalayam, Kanchipuram • Open 9 AM – 9 PM
+          </p>
+        </div>
+
+        <p id="hero-desc" class="text-white/90 text-sm sm:text-base leading-relaxed">
+          Authentic Kanchipuram handloom pure silk sarees, bridal korvai weaves, and wedding gifting collections direct from our looms—with honest pricing, live WhatsApp video selection, and all-India insured delivery.
+        </p>
+
+        <!-- Key Highlights -->
+        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1 max-w-md">
+          <div class="bg-black/40 backdrop-blur-sm border border-white/15 rounded-xl p-2.5 sm:p-3">
+            <p id="spec-1-val" class="text-amber-300 font-extrabold text-xs sm:text-sm">Pure Zari</p>
+            <p class="text-white/75 text-[11px]">Kanchi Silk</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm border border-white/15 rounded-xl p-2.5 sm:p-3">
+            <p id="spec-2-val" class="text-amber-300 font-extrabold text-xs sm:text-sm">Bridal & Bulk</p>
+            <p class="text-white/75 text-[11px]">Direct Rates</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm border border-white/15 rounded-xl p-2.5 sm:p-3">
+            <p id="spec-3-val" class="text-amber-300 font-extrabold text-xs sm:text-sm">Live Video</p>
+            <p class="text-white/75 text-[11px]">Saree Check</p>
+          </div>
+        </div>
+
+        <!-- Primary Action Buttons -->
+        <div class="pt-2 flex flex-wrap gap-3">
+          <button onclick="openGeneralWhatsApp()" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Chat on WhatsApp (+91 90940 01144)</span>
+          </button>
+          <a href="#catalog" class="w-full sm:w-auto text-center bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/25 text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition">
+            View Saree Collections ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Saree Catalog Section (100% Real Silk Saree Photos) -->
+  <section id="catalog" class="max-w-6xl mx-auto px-5 sm:px-6 py-12 sm:py-14">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <span id="catalog-kicker" class="text-xs font-bold uppercase tracking-wider text-purple-900">Handpicked Silk Collections</span>
+        <h2 class="serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Kanchipuram Silk & Saree Catalog</h2>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap gap-2" id="filter-buttons">
+        <button onclick="filterCatalog('all', this)" class="filter-btn active bg-[#581349] text-white text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition">
+          All Varieties
+        </button>
+        <button onclick="filterCatalog('bridal', this)" class="filter-btn bg-white border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition">
+          Bridal & Korvai
+        </button>
+        <button onclick="filterCatalog('softsilk', this)" class="filter-btn bg-white border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition">
+          Pure Soft Silk
+        </button>
+        <button onclick="filterCatalog('gifting', this)" class="filter-btn bg-white border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition">
+          Silk-Cotton & Gifting
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-grid">
+      
+      <!-- Item 1: Red & Gold Zari Border Bridal Korvai Silk Saree -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="bridal">
+        <div class="relative h-64 bg-rose-950 overflow-hidden">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQl7-C0Omfgm3ua8LlzDSKo2ppojAM1MawA99CUGej66FkUA8hVHD4Pu9mSbE9q4oWssDSSeT7BjMd5T9w"
+            alt="Kanchipuram Grand Bridal Korvai Pattu Saree"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              BRIDAL MUHURTHAM
+            </span>
+            <span class="bg-amber-400 text-amber-950 text-[10px] font-bold px-2 py-0.5 rounded shadow">BESTSELLER</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Heirloom Zari Weave</p>
+            <h3 class="serif text-xl font-bold leading-snug">Grand Bridal Korvai Pattu</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹6,500 – ₹14,500</p>
+              <span class="text-xs font-semibold text-emerald-700">Weaver Direct</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Traditional Kanchipuram contrast korvai borders with intricate temple motifs, rich gold zari brocade pallu, and heavy blouse piece.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Grand Bridal Korvai Pattu Collection')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 2: Folded Pure Soft Silk Sarees -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="softsilk">
+        <div class="relative h-64 bg-purple-950 overflow-hidden">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Kanchi_Silk.jpg?width=800"
+            alt="Kanchipuram Pure Soft Silk Saree"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              LIGHTWEIGHT PATTU
+            </span>
+            <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">IN STOCK</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Reception & Boutique</p>
+            <h3 class="serif text-xl font-bold leading-snug">Kanchipuram Pure Soft Silk</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹3,200 – ₹5,800</p>
+              <span class="text-xs font-semibold text-emerald-700">Retail & Bulk</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Buttery-soft drape with vibrant dual-tone shades, delicate zari buttis, and contrast border. Popular for receptions and boutique resale.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Kanchipuram Pure Soft Silk Collection')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 3: Gold Tissue & Temple Border Saree -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="bridal">
+        <div class="relative h-64 bg-amber-950 overflow-hidden">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQBQk9mwCs6D2MAgqEPk0gZEFDvFRybb5uAEQB47Ndm1d3ouCOJQJZ20cgM0FQthaXCklTWyMLn5G8Yds4"
+            alt="Gold Tissue and Temple Border Kanchipuram Saree"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              FESTIVE & WEDDING
+            </span>
+            <span class="bg-amber-400 text-amber-950 text-[10px] font-bold px-2 py-0.5 rounded shadow">NEW ARRIVAL</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Classic Heritage</p>
+            <h3 class="serif text-xl font-bold leading-snug">Gold Tissue & Temple Border</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹4,800 – ₹9,200</p>
+              <span class="text-xs font-semibold text-emerald-700">Fresh Looms</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Luminous woven gold tissue sheen paired with classic Kanchi rudraksham and mayil (peacock) motifs straight from our looms.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Gold Tissue & Temple Border Sarees')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 4: Dual-Tone & Zari Butta Silk Saree -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="softsilk">
+        <div class="relative h-64 bg-indigo-950 overflow-hidden">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcR2gAd-4Fc7PwD9W6V-eRKO_f1l8tXBGE5c2_vJr2P_kv6_F0DGVGy3__HJ8CX_npYvunwHo6lBd6Kz_OY"
+            alt="Dual Tone Zari Butta Silk Saree"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              BOUTIQUE SPECIAL
+            </span>
+            <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">TRENDING</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Artisan Colourways</p>
+            <h3 class="serif text-xl font-bold leading-snug">Dual-Tone & Zari Butta Silk</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹2,800 – ₹4,900</p>
+              <span class="text-xs font-semibold text-emerald-700">Set & Single</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Rich jewel-toned silk threads woven with intricate gold zari checks and contrasting borders—high demand for weddings and functions.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Dual-Tone & Zari Butta Silk Sarees')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 5: Kanchi Silk-Cotton (Sico) Saree -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="gifting">
+        <div class="relative h-64 bg-emerald-950 overflow-hidden">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcS_93VmvGCAuth1LU9bGDcgOYcd_RbkJF7i-cnYNix3cygGMtYcWcIM76rWi0cimMNLEOxIw988NOiLxNU"
+            alt="Kanchipuram Silk-Cotton Sico Saree"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              FESTIVE & TEMPLE WEAR
+            </span>
+            <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">IN STOCK</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Graceful Comfort</p>
+            <h3 class="serif text-xl font-bold leading-snug">Kanchi Silk-Cotton (Sico)</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹1,150 – ₹2,200</p>
+              <span class="text-xs font-semibold text-emerald-700">Bulk Discounts</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Crisp, breathable Kanchipuram silk-cotton weaves with rich zari borders—ideal for family functions and reseller bundles.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Kanchi Silk-Cotton (Sico) Sarees')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 6: Designer Kalamkari & Festive Gifting Silk Sarees -->
+      <div class="catalog-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-category="gifting">
+        <div class="relative h-64 bg-fuchsia-950 overflow-hidden">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSqLAwoA1LynkosnjJ2bAgFmcjz0UV_ltxsbK6G_PVHR_XcVSTXHefPUO7dp1xTVtaSEpwmgyFcP_foOxM"
+            alt="Wedding and Festive Silk Gifting Saree Collection"
+            class="w-full h-full object-cover hover:scale-105 transition duration-500"
+          />
+          <div class="absolute top-3 inset-x-3 flex justify-between items-start">
+            <span class="bg-black/65 backdrop-blur-sm text-amber-200 text-[11px] font-bold px-2.5 py-1 rounded-md">
+              WEDDING BULK LOTS
+            </span>
+            <span class="bg-amber-400 text-amber-950 text-[10px] font-bold px-2 py-0.5 rounded shadow">SPECIAL VALUE</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+            <p class="text-[11px] text-amber-300 uppercase tracking-wider font-semibold">Thamboolam & Gifting</p>
+            <h3 class="serif text-xl font-bold leading-snug">Wedding & Family Gift Sarees</h3>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-baseline justify-between">
+              <p class="text-xl font-extrabold text-stone-900">₹550 – ₹1,450</p>
+              <span class="text-xs font-semibold text-emerald-700">10 to 100+ Pcs</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Curated semi-silk and art-silk gifting sarees in vibrant festive colours with special volume pricing for weddings and resellers.
+            </p>
+          </div>
+          <button onclick="inquireProduct('Wedding & Family Gift Saree Bundles')" class="w-full bg-stone-900 hover:bg-[#581349] text-white font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>💬 Ask Live Photos & Price on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How Ordering Works -->
+  <section id="how-to-order" class="bg-stone-900 text-white py-14">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span id="steps-kicker" class="text-amber-400 text-xs font-bold uppercase tracking-wider">Simple 3-Step Order Process</span>
+        <h2 class="serif text-2xl sm:text-3xl font-bold mt-1">Shop Direct From Pillaiyarpalayam</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <span class="step-badge w-9 h-9 rounded-xl bg-amber-400 text-amber-950 font-extrabold flex items-center justify-center text-sm mb-4">1</span>
+          <h3 class="font-bold text-lg mb-2">Request Fresh Loom Photos</h3>
+          <p class="text-stone-300 text-xs leading-relaxed">
+            Tap any WhatsApp button on this page to get today's latest Kanchipuram saree photos and wholesale or wedding price ranges.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <span class="step-badge w-9 h-9 rounded-xl bg-amber-400 text-amber-950 font-extrabold flex items-center justify-center text-sm mb-4">2</span>
+          <h3 class="font-bold text-lg mb-2">Live Video Call Preview</h3>
+          <p class="text-stone-300 text-xs leading-relaxed">
+            Cannot visit Kanchipuram in person? Connect on a quick WhatsApp video call (9 AM – 9 PM) to inspect zari shine and border colours live.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <span class="step-badge w-9 h-9 rounded-xl bg-amber-400 text-amber-950 font-extrabold flex items-center justify-center text-sm mb-4">3</span>
+          <h3 class="font-bold text-lg mb-2">Same-Day Insured Dispatch</h3>
+          <p class="text-stone-300 text-xs leading-relaxed">
+            Confirm your selection via UPI, Card, or Bank Transfer. Your sarees are neatly packed and shipped across India the very same day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-stone-200 py-10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <h4 id="footer-shop-name" class="serif font-bold text-lg text-stone-900">
+          Sri Jaya Silk and Sarees
+        </h4>
+        <p id="footer-city" class="text-xs text-stone-600 mt-1">
+          📍 94/110, Krishnan St, Pillaiyarpalayam, Kanchipuram, Tamil Nadu 631501
+        </p>
+        <p class="text-xs text-stone-500 mt-1">
+          🕒 Mon – Sun: 9:00 AM – 9:00 PM • All-India Delivery & Store Pickup
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center items-center gap-2.5">
+        <a id="footer-call-btn" href="tel:+919094001144" class="bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold px-4 py-3 rounded-xl transition">
+          📞 Call: 090940 01144
+        </a>
+        <button id="footer-wa-btn" onclick="openGeneralWhatsApp()" class="bg-[#581349] hover:bg-[#430d37] text-white text-xs font-bold px-5 py-3 rounded-xl transition cursor-pointer">
+          💬 WhatsApp Catalog Desk
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Bottom WhatsApp Bar -->
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-stone-200 p-3 shadow-[0_-4px_15px_rgba(0,0,0,0.08)]">
+    <button onclick="openGeneralWhatsApp()" class="w-full bg-[#25D366] active:bg-[#1ebe5d] text-white font-bold text-sm py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2">
+      <span>💬 Chat on WhatsApp for Saree Photos & Prices</span>
+    </button>
+  </div>
+
+  <!-- Adaptive Theme Engine & Dynamic Shop Photo Support -->
+  <script>
+    const THEMES = {
+      'kanchi-plum': {
+        overlay: 'from-[#240628] via-[#3b0b38]/80 to-black/35',
+        accentText: 'text-amber-300',
+        badge: 'bg-amber-400 text-amber-950',
+        kicker: 'text-purple-900',
+        activePill: 'bg-[#581349] text-white',
+        footerBtn: 'bg-[#581349] hover:bg-[#430d37]'
+      },
+      'royal-silk': {
+        overlay: 'from-[#2c060d] via-[#4c0519]/80 to-black/35',
+        accentText: 'text-amber-300',
+        badge: 'bg-amber-400 text-amber-950',
+        kicker: 'text-rose-800',
+        activePill: 'bg-rose-900 text-white',
+        footerBtn: 'bg-rose-900 hover:bg-rose-800'
+      },
+      'emerald-cotton': {
+        overlay: 'from-[#022c22] via-[#064e3b]/80 to-black/35',
+        accentText: 'text-emerald-300',
+        badge: 'bg-emerald-400 text-emerald-950',
+        kicker: 'text-emerald-800',
+        activePill: 'bg-emerald-900 text-white',
+        footerBtn: 'bg-emerald-900 hover:bg-emerald-800'
+      },
+      'indigo-loom': {
+        overlay: 'from-[#090d26] via-[#1e1b4b]/80 to-black/35',
+        accentText: 'text-sky-300',
+        badge: 'bg-sky-400 text-sky-950',
+        kicker: 'text-indigo-800',
+        activePill: 'bg-indigo-900 text-white',
+        footerBtn: 'bg-indigo-900 hover:bg-indigo-800'
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const themeKey = params.get('theme') || 'kanchi-plum';
+    const currentTheme = THEMES[themeKey] || THEMES['kanchi-plum'];
+
+    // Apply Adaptive Theme
+    document.getElementById('hero-overlay').className = `absolute inset-0 z-10 bg-gradient-to-t ${currentTheme.overlay}`;
+    document.getElementById('hero-badge').className = `${currentTheme.badge} text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider`;
+    document.getElementById('hero-subtitle').className = `${currentTheme.accentText} font-semibold text-sm sm:text-base mt-1.5`;
+    document.getElementById('catalog-kicker').className = `text-xs font-bold uppercase tracking-wider ${currentTheme.kicker}`;
+    document.getElementById('footer-wa-btn').className = `${currentTheme.footerBtn} text-white text-xs font-bold px-5 py-3 rounded-xl transition cursor-pointer`;
+    
+    ['spec-1-val', 'spec-2-val', 'spec-3-val'].forEach(id => {
+      document.getElementById(id).className = `${currentTheme.accentText} font-extrabold text-xs sm:text-sm`;
+    });
+    document.querySelectorAll('.step-badge').forEach(el => {
+      el.className = `step-badge w-9 h-9 rounded-xl ${currentTheme.badge} font-extrabold flex items-center justify-center text-sm mb-4`;
+    });
+    const firstFilter = document.querySelector('.filter-btn.active');
+    if (firstFilter) {
+      firstFilter.className = `filter-btn active ${currentTheme.activePill} text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition`;
+    }
+
+    // Apply Custom Shop Photos if provided (?slides=url1,url2 or ?shop_img=url)
+    const customSlides = params.get('slides') || params.get('shop_img');
+    let currentSlideIndex = 0;
+
+    if (customSlides) {
+      const urls = customSlides.split(',').map(u => u.trim()).filter(Boolean);
+      if (urls.length > 0) {
+        const container = document.getElementById('slides-container');
+        container.innerHTML = urls.map((url, idx) => `
+          <div class="hero-slide ${idx === 0 ? 'active' : 'inactive'} absolute inset-0">
+            <img src="${url}" alt="Shop Photo ${idx + 1}" class="w-full h-full object-cover object-center" />
+          </div>
+        `).join('');
+
+        if (urls.length > 1) {
+          const controls = document.getElementById('slider-controls');
+          const dotsContainer = document.getElementById('slide-dots');
+          controls.classList.remove('hidden');
+          dotsContainer.innerHTML = urls.map((_, idx) => `
+            <button onclick="goToSlide(${idx})" class="dot ${idx === 0 ? 'w-2.5 h-2.5 bg-amber-400' : 'w-2 h-2 bg-white/45'} rounded-full transition cursor-pointer"></button>
+          `).join('');
+          setInterval(() => changeSlide(1), 4000);
+        }
+      }
+    }
+
+    function goToSlide(index) {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.dot');
+      if (slides.length <= 1) return;
+      currentSlideIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlideIndex);
+        slide.classList.toggle('inactive', i !== currentSlideIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.className = i === currentSlideIndex
+          ? 'dot w-2.5 h-2.5 rounded-full bg-amber-400 transition cursor-pointer'
+          : 'dot w-2 h-2 rounded-full bg-white/45 transition cursor-pointer';
+      });
+    }
+
+    function changeSlide(step) {
+      goToSlide(currentSlideIndex + step);
+    }
+
+    // Apply Shop Details
+    const shopName = params.get('shop') || 'Sri Jaya Silk and Sarees';
+    const city = params.get('city') || 'Kanchipuram';
+    const rating = params.get('rating') || '5.0';
+    const phone = (params.get('phone') || '919094001144').replace(/\D/g, '');
+
+    if (params.get('shop')) {
+      document.title = `${shopName} | Official Silk & Saree Catalog`;
+      document.getElementById('hero-title').textContent = shopName;
+      document.getElementById('footer-shop-name').textContent = shopName;
+    }
+    if (params.get('city')) {
+      document.getElementById('hero-subtitle').textContent = `Direct Handloom & Wholesale Sarees • ${city}, Tamil Nadu`;
+      document.getElementById('footer-city').textContent = `📍 Silk Weaving Hub, ${city}, Tamil Nadu`;
+    }
+    if (params.get('rating')) {
+      document.getElementById('hero-rating').textContent = `★ ${rating} Google Rated Silk House`;
+    }
+    if (params.get('phone')) {
+      document.getElementById('footer-call-btn').href = `tel:+${phone}`;
+      document.getElementById('footer-call-btn').textContent = `📞 Call: +${phone}`;
+    }
+
+    function filterCatalog(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.className = 'filter-btn bg-white border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition';
+      });
+      btn.className = `filter-btn active ${currentTheme.activePill} text-xs font-bold px-4 py-2 rounded-full cursor-pointer transition`;
+
+      document.querySelectorAll('.catalog-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openGeneralWhatsApp() {
+      const msg = `Vanakkam ${shopName}, I visited your Kanchipuram silk catalog website and would like to see today's latest saree photos and price details.`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function inquireProduct(productName) {
+      const msg = `Vanakkam ${shopName}, I am interested in your *${productName}*. Please share available colour photos and price details on WhatsApp.`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
